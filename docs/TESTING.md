@@ -9,21 +9,14 @@ uv run python scripts/check.py      # every gate, as CI and the factory run it
 
 ## Policy
 
-- Branch coverage of `src/chart_to_data` must stay at or above 80 %; the gate fails below it.
-- Tests exercise the public API (`import chart_to_data`) and assert every observable effect:
-  return values, raised exceptions and their messages.
+- Tests exercise the public API (`import chart_to_data`) and assert return values, raised `ChartError` codes and command line output.
+- Tests are deterministic: they build PNM images in memory and require no network, wall clock or fixture files.
 - Each bug fix starts with a failing test that reproduces it.
-- Tests are deterministic: no network, no wall clock, no dependence on test order.
 
 ## Tiers
 
-- Local tier (every gate run, coverage measured here): unit and property tests, plus conformance on small
-  fixtures kept in the repository.
-- CI tier: conformance that needs an external tool or a download. Mark them `@pytest.mark.conformance`; `scripts/check.py` deselects them locally
-  (unless `FABRICA_CI=1`). The CI `conformance` job sets `FABRICA_CI=1` and runs the full suite. Tools are installed
-  by the optional `ci/conformance-setup.sh` (bash, CI only; verify every download against a pinned SHA-256), and
-  tagged tests skip cleanly when their tool is missing.
+There is one test tier in the supplied code: `tests/test_chart_to_data.py`, run locally and in CI. No external-tool conformance marker or download step is present in the supplied test module.
 
 ## Layout
 
-`tests/test_<module>.py` mirrors each public module. Shared fixtures go in `tests/conftest.py`.
+`tests/test_chart_to_data.py` is the test module. It defines helpers `_make_p3`, `_make_p6`, `_make_white_image`, `_set_pixel` and `_draw_vertical_bar`, imports `Bar`, `Calibration`, `ChartError`, `RgbImage`, `dominant_colors`, `extract_bars`, `extract_line` and `load_image`, and contains `test_calibration_exact`. The suite covers linear calibration including `invalid_calibration`, bar extraction on synthetic images, line extraction including out-of-area samples and gaps, dominant color counting, PNM loading and error codes (`unsupported_image`, `image_too_large`, `invalid_image`, `invalid_area`), and command line output and exit codes.

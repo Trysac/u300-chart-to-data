@@ -9,4 +9,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- ### Added
+- Initial release of chart_to_data: pixel analysis of bar and line chart images with linear calibration, PNM loading, bar and line extraction, dominant colors, and CLI.
 - Initial project structure from the factory utility template.
