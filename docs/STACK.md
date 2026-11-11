@@ -4,7 +4,7 @@
 
 | Tool | Why |
 |---|---|
-| Python >= 3.10 | Widest supported range that still allows modern typing syntax. |
+| Python >= 3.10 | Supports the typing syntax used by the package; runtime code uses only the standard library. |
 | uv | Fast, reproducible environments and builds on Windows and Linux. |
 | hatchling | Simple, standards-based build backend; no setup.py. |
 | ruff | Lint and format in one fast tool. |

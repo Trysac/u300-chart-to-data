@@ -5,20 +5,27 @@ series color matching, bar edges, line sampling and dominant colors
 
 from __future__ import annotations
 
-__all__ = ["__version__", "normalize"]
+from chart_to_data.__main__ import (
+    Bar,
+    Calibration,
+    ChartError,
+    RgbImage,
+    dominant_colors,
+    extract_bars,
+    extract_line,
+    load_image,
+)
+
+__all__ = [
+    "Bar",
+    "Calibration",
+    "ChartError",
+    "RgbImage",
+    "__version__",
+    "dominant_colors",
+    "extract_bars",
+    "extract_line",
+    "load_image",
+]
 
 __version__ = "0.1.0"
-
-
-def normalize(value: str) -> str:
-    """Return ``value`` trimmed and lower-cased.
-
-    Placeholder API created by the template: replace it with the utility's real behavior.
-
-    Raises:
-        ValueError: if ``value`` is empty or only whitespace.
-    """
-    cleaned = value.strip()
-    if not cleaned:
-        raise ValueError("value must not be empty")
-    return cleaned.lower()
