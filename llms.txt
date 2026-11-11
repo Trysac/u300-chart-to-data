@@ -1,0 +1,16 @@
+# chart-to-data
+
+> Recover numbers from raster bar and line chart images by pixel analysis: linear axis calibration, series color matching, bar edges, line sampling and dominant colors Python package `trysac-chart-to-data`, import name `chart_to_data`, MIT licensed,
+> Python >= 3.10, no runtime dependencies.
+
+## Docs
+
+- [README](README.md): problem, install, usage example
+- [AGENTS](AGENTS.md): commands, folder map, conventions, limits
+- [Architecture](docs/ARCHITECTURE.md): shape of the package and its public API
+- [Testing](docs/TESTING.md): how to run and extend the tests
+
+## Optional
+
+- [Stack](docs/STACK.md): tools used and discarded
+- [Changelog](CHANGELOG.md): release history

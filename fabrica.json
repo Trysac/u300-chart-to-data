@@ -1,0 +1,1 @@
+{"lang": "python", "package": "trysac-chart-to-data", "commands": {"install": [["uv", "sync", "--all-extras"]], "check": [["uv", "run", "python", "scripts/check.py"]]}}
